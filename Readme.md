@@ -1,4 +1,4 @@
-# Kuckoo loader
+# Cuckoo loader
 This project is a resurection of the Nest Thermostat DFU attack, originally published by exploitee.rs
 
 DISCLAIMER: Use this at your own risk. I take no responsibility for any loss, damage, bricked devices, etc.
@@ -39,7 +39,7 @@ File 'uImage' at 0x80a00000, size 6972252
 
 The nest will then reboot and apply the original exploit which will install an ssh server and reset the root password
 
-THe new default root password is: `gtvh4ckr`
+The new default root password is: `gtvh4ckr`
 
 Note: This has only been ran on an older linux laptop. Millage may vary but feel free to open issues.
 
@@ -49,7 +49,7 @@ Well.. you have root. There is a lot you can do from here. Please remember to ch
 I will be adding more repos in relation to this project as time goes on. 
 
 ## Whats the name about
-This forms part of a project I am naming kuckoo. It is taken from the bird that moves into other species nests and lays their own eggs. Feels fitting.
+This forms part of a project I am naming Cuckoo. It is taken from the bird that moves into other species nests and lays their own eggs. Feels fitting.
 
 ## credits
 The following repos have been inredibly helpful in getting this working:
