@@ -50,7 +50,7 @@ You will need a metal object, such as a pair of tweezers to kick the device into
 Bridge the black and yellow contacts. With the contacts bridged, connect a mini-usb cable to the device.
 
 
-The nest will then reboot and apply the original exploit which will install an ssh server and reset the root password
+The nest will then boot and apply the original exploit which will install an ssh server and reset the root password
 
 The new default root password is: `gtvh4ckr`
 
