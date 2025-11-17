@@ -69,9 +69,10 @@ fi
 
 echo "[I] - Cross compiling x-loader."
 cd x-loader/x-loader
-make ARCH=arm CROSS_COMPILE=arm-none-linux-gnueabi- distclean
-make ARCH=arm CROSS_COMPILE=arm-none-linux-gnueabi- diamond-usb-loader_config # change j49 (gen2) to diamond (gen1)
-make ARCH=arm CROSS_COMPILE=arm-none-linux-gnueabi-
+sed -i '/^[[:space:]]*puts("Images exhausted\\n");[[:space:]]*$/i\        do_usb();' lib/board.c # force x-loader to load usb when it fails to load anything else (instead of hang)
+make HOSTCFLAGS+=" -std=gnu89" ARCH=arm CROSS_COMPILE=arm-none-linux-gnueabi- distclean 
+make HOSTCFLAGS+=" -std=gnu89" ARCH=arm CROSS_COMPILE=arm-none-linux-gnueabi- diamond-usb-loader_config # change j49 (gen2) to diamond (gen1)
+make HOSTCFLAGS+=" -std=gnu89" ARCH=arm CROSS_COMPILE=arm-none-linux-gnueabi-
 cd ../..
 if [ ! -f x-loader/x-loader/x-load.bin ]
     then
