@@ -7,6 +7,10 @@ There are two main steps to getting this to run:
 ### Build
 Run the build.sh script. This will download numerous sources, apply patches and build all the various binaries.
 
+
+
+
+
 ### Run the exploit
 Run the ./load_firmware.sh script. Once started, press and hold down the screen on the nest for approx 10s. You should see activity as follows:
 ```
@@ -17,14 +21,34 @@ File 'x-load.bin' at 0x40200000, size 27868
 File 'u-boot.bin' at 0x80100000, size 246572
 File 'uImage' at 0x80a00000, size 6972252
 [+] scanning for USB device matching 0451:d00e...
-[+] successfully opened 0451:d00e (Texas Instruments OMAP3630)
-[+] got ASIC ID - Num Subblocks [05], Device ID Info [01050136300707], Reserved [13020100], Ident Data [1215010000000000000000000000000000000000000000], Reserved [1415010000000000000000000000000000000000000000], CRC (4 bytes) [15090113bf3eef00000000]
-[+] uploading 'u-boot.bin' (size 246572) to 0x80100000
-[+] uploading 'uImage' (size 6972252) to 0x80a00000
-[+] sending jump command: 0x6a425355, 0x80100000, 12
-[+] jumping to address 0x80100000
-[+] successfully transfered 3 files
 ```
+
+
+### DFU Mode
+Unlike Gen2, Gen1 Themostats do not default to booting in DFU mode. I have found that shorting the following leg of a resistor (yellow) to ground (black) triggers DFU mode.
+
+To start, [disassemble your thermostat](https://learn.sparkfun.com/tutorials/nest-thermostat-teardown-/all).
+
+Once you have reached this point:
+
+![52e157afce395fbd558b4567](https://github.com/user-attachments/assets/da243484-350e-485e-99e1-cabacf455e67)
+
+Unplug the battery by sticking your finger or a NON-CONDUCTIVE object underneath the battery wires. It lifts directly up.
+
+(insert image from non damaged battery connector)
+
+Once the battery is disconnected, you can pry the metal shield from the corner to get access to the components.
+
+<img width="626" height="579" alt="image" src="https://github.com/user-attachments/assets/e51d53a0-86ce-4e35-a851-915273008bd7" />
+
+From here, you will need to reconnect the battery with the shield detached. The device will not boot without a battery connected.
+
+You will need a metal object, such as a pair of tweezers to kick the device into DFU mode. With the battery connected and the ./load_firmware.sh script running:
+
+<img width="1604" height="1604" alt="image" src="https://github.com/user-attachments/assets/c98e99fd-bdc8-4c51-8fae-42826cf2237b" />
+
+Bridge the black and yellow contacts. With the contacts bridged, connect a mini-usb cable to the device.
+
 
 The nest will then reboot and apply the original exploit which will install an ssh server and reset the root password
 
