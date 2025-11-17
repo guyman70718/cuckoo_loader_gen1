@@ -43,7 +43,7 @@ Once the battery is disconnected, you can pry the metal shield from the corner t
 
 From here, you will need to reconnect the battery with the shield detached. The device will not boot without a battery connected.
 
-You will need a metal object, such as a pair of tweezers to kick the device into DFU mode. With the battery connected and the ./load_firmware.sh script running:
+You will need a metal object, such as a pair of tweezers to kick the device into DFU mode. With the battery connected, screen off, and ./load_firmware.sh script running:
 
 <img width="1604" height="1604" alt="image" src="https://github.com/user-attachments/assets/c98e99fd-bdc8-4c51-8fae-42826cf2237b" />
 
