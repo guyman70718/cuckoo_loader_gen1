@@ -70,7 +70,7 @@ fi
 echo "[I] - Cross compiling x-loader."
 cd x-loader/x-loader
 make ARCH=arm CROSS_COMPILE=arm-none-linux-gnueabi- distclean
-make ARCH=arm CROSS_COMPILE=arm-none-linux-gnueabi- j49-usb-loader_config
+make ARCH=arm CROSS_COMPILE=arm-none-linux-gnueabi- diamond-usb-loader_config # change j49 (gen2) to diamond (gen1)
 make ARCH=arm CROSS_COMPILE=arm-none-linux-gnueabi-
 cd ../..
 if [ ! -f x-loader/x-loader/x-load.bin ]
