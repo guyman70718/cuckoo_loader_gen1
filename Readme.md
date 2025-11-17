@@ -1,16 +1,5 @@
-# Cuckoo loader
-This project is a resurection of the Nest Thermostat DFU attack, originally published by exploitee.rs
-
-DISCLAIMER: Use this at your own risk. I take no responsibility for any loss, damage, bricked devices, etc.
-
-The orginal project has "rusted" somewhat as technology has moved on. 
-
-The following issues have been resolved:
- - omap3_loader tool does not work on modern systems.
- - "modern" omap_loader tool did not send a compatible jump command.
- - x-loader used in the original exploit is not compatible with alternate nand chips used on some nest thermostats.
- - build issues with u-boot.
- - build issues with linux.
+# Cuckoo loader for Nest Gen 1 Thermostats (diamond)
+This is a fork of [cuckoo_loader](https://github.com/cuckoo-nest/cuckoo_loader) for Nest Gen1 Thermostats. It has been slightly (poorly) modified to force the x-loader to boot from usb when it doesn't want to.
 
 ## Usage
 There are two main steps to getting this to run:
@@ -44,8 +33,7 @@ The new default root password is: `gtvh4ckr`
 Note: This has only been ran on an older linux laptop. Millage may vary but feel free to open issues.
 
 # Issues building
-The toolchain was compiled for 32 bit systems. If you are trying to compile on 64bit systems, the following guide may help:
-https://devnodes.in/blog/linux/arm-no-such-a-file-or-directory/
+The script has been fully tested on a Ubuntu 24.04 64-Bit system, alongside a Debian 13 64-Bit system. I haven't tested any other distros, but as a hint you can check build.sh for the packages that are being inspected on a dpkg system.
 
 ## What next
 Well.. you have root. There is a lot you can do from here. Please remember to change the default password. 
